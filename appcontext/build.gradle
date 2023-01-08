@@ -1,19 +1,5 @@
 plugins {
     id 'com.android.library'
-    id 'maven-publish'
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.starteam.core.lib'
-                artifactId = 'appcontext'
-                version = '1.0.0'
-            }
-        }
-    }
 }
 
 android {
@@ -48,3 +34,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 }
+
+apply from: rootProject.file("gradle/maven-publish.gradle")
